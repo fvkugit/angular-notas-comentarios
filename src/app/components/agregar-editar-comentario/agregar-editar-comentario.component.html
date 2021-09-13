@@ -1,1 +1,20 @@
-<p>agregar-editar-comentario works!</p>
+<h1>Crear nuevo comentario</h1>
+<form [formGroup]="agregarComentario" (ngSubmit)="agregar()">
+    <div class="mb-3">
+        <label for="titulo" class="form-label">Titulo:</label>
+        <input formControlName="titulo" type="text" class="form-control" id="titulo" autocomplete="off">
+        <span *ngIf="agregarComentario.get('titulo')?.invalid && agregarComentario.get('titulo')?.touched" class="text-danger">Debes colocar un titulo!</span>
+    </div>
+    <div class="mb-3">
+        <label for="creador" class="form-label">Creador:</label>
+        <input formControlName="creador" type="text" class="form-control" id="creador" autocomplete="off">
+        <span *ngIf="agregarComentario.get('creador')?.invalid && agregarComentario.get('creador')?.touched" class="text-danger">Debes colocar un creador!</span>
+    </div>
+    <div class="mb-3">
+        <label for="texto" class="form-label">Texto:</label>
+        <textarea formControlName="texto" class="form-control" id="texto" rows="8"></textarea>
+        <span *ngIf="agregarComentario.get('texto')?.invalid && agregarComentario.get('texto')?.touched" class="text-danger">Debes colocar un texto!</span>
+    </div>
+    <button type="submit" [disabled]="agregarComentario.invalid" class="btn btn-success float-end">Crear comentario</button>
+    <button type="button" class="btn btn-danger" routerLink="/">Volver</button>
+</form>
