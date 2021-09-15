@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Comentario } from 'src/app/interfaces/comentario';
+import { ComentarioService } from 'src/app/services/comentario.service';
 
 @Component({
   selector: 'app-agregar-editar-comentario',
@@ -11,7 +12,7 @@ export class AgregarEditarComentarioComponent implements OnInit {
   
   agregarComentario: FormGroup;
 
-  constructor(private fb: FormBuilder) { 
+  constructor(private fb: FormBuilder, private _comentarioService: ComentarioService) { 
 
     this.agregarComentario = this.fb.group({
       titulo: ['', Validators.required],
@@ -33,7 +34,11 @@ export class AgregarEditarComentarioComponent implements OnInit {
       fechaCreacion: new Date()
     }
 
-    console.log(comentario)
+    this._comentarioService.createComentario(comentario).subscribe(data=>{
+      console.log(data)
+    }, error=>{
+      console.log(error)
+    })
   }
 
 }
