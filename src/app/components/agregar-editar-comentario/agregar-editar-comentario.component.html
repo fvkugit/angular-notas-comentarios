@@ -1,4 +1,4 @@
-<h1>Crear nuevo comentario</h1>
+<h1>{{accion}} comentario</h1>
 <form [formGroup]="agregarComentario" (ngSubmit)="agregar()">
     <div class="mb-3">
         <label for="titulo" class="form-label">Titulo:</label>
@@ -15,6 +15,6 @@
         <textarea formControlName="texto" class="form-control" id="texto" rows="8"></textarea>
         <span *ngIf="agregarComentario.get('texto')?.invalid && agregarComentario.get('texto')?.touched" class="text-danger">Debes colocar un texto!</span>
     </div>
-    <button type="submit" [disabled]="agregarComentario.invalid" class="btn btn-success float-end">Crear comentario</button>
+    <button type="submit" [disabled]="agregarComentario.invalid" class="btn btn-success float-end">{{accion}} comentario</button>
     <button type="button" class="btn btn-danger" routerLink="/">Volver</button>
 </form>

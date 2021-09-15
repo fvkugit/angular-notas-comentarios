@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Comentario } from '../interfaces/comentario';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,10 @@ export class ComentarioService {
 
   getComentario(id: number): Observable<any>{
     return this.http.get(this.beUrl + this.apiUrl + id);
+  }
+
+  updateComentario(id: number, comentario: Comentario): Observable<any>{
+    return this.http.put(this.beUrl + this.apiUrl + id, comentario);
   }
 
 }
