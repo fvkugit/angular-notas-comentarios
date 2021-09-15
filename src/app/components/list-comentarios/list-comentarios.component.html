@@ -21,7 +21,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let comentario of listComentarios">
-            <td><a [routerLink]="['/ver', '1']">{{ comentario.titulo }}</a></td>
+            <td><a [routerLink]="['/ver', comentario.id]">{{ comentario.titulo }}</a></td>
             <td>{{ comentario.creador }}</td>
             <td>{{ comentario.fechaCreacion | date:'dd/MM/yy (hh:mm)' }}</td>
             <td style="width: 8%"><button type="button" class="btn btn-info btn-sm float-end">Editar</button></td>

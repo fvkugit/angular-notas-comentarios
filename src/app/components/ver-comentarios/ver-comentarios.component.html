@@ -1,8 +1,8 @@
-<div>
-    <h2>Python</h2>
-    <h5>Lenguaje interpretado creado por Van Rossum.</h5>
-    <ol>
-        <li>Creador: Juan</li>
-        <li>Fecha comentario: 13/09/2021</li>
-    </ol>
+<div *ngIf="comentario !== undefined">
+    <h2>{{comentario.titulo}}</h2>
+    <h5>{{comentario.texto}}</h5>
+    <ul>
+        <li>Creador: {{comentario.creador}}</li>
+        <li>Fecha comentario: {{comentario.fechaCreacion | date:'dd/MM/yy (hh:mm)' }}</li>
+    </ul>
 </div>

@@ -24,4 +24,8 @@ export class ComentarioService {
     return this.http.post(this.beUrl + this.apiUrl, comentario);
   }
 
+  getComentario(id: number): Observable<any>{
+    return this.http.get(this.beUrl + this.apiUrl + id);
+  }
+
 }
